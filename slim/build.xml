@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="decompras" default="build">
+    <target name="build" depends="prepare, lint, composerDeploy"/>
+    <target name="build-parallel" depends="prepare, lint"/>
+    <target name="clean" description="Cleanup build artifacts">
+        <delete dir="${basedir}/vendor"/>
+    </target>
+    <target name="prepare" depends="clean" description="Prepare for build">
+        <mkdir dir="${basedir}/vendor"/>
+    </target>
+    <target name="lint" description="Perform syntax check of sourcecode files">
+        <apply executable="php" failonerror="true">
+            <arg value="-l" />
+            <fileset dir="${basedir}/">
+                <include name="*/.php" />
+                <include name="*/.phtml" />
+            </fileset>
+        </apply>
+    </target>
+    <target name="composerUpdate" description="Update dependencies with Composer">
+        <exec executable="php">
+            <arg value="${basedir}/composer.phar"/>
+            <arg value="self-update"/>
+        </exec>
+    </target>
+    <target name="composer" description="Install dependencies with Composer">
+        <exec executable="php">
+            <arg value="${basedir}/composer.phar"/>
+            <arg value="update"/>
+        </exec>
+    </target>
+    <target name="composerCleanCache" description="Cleans composer cache">
+        <exec executable="php">
+            <arg value="${basedir}/composer.phar"/>
+            <arg value="clear-cache"/>
+        </exec>
+    </target>
+    <target name="composerDeploy" description="Install dependencies with Composer">
+        <exec executable="php" failonerror="true">
+            <arg value="${basedir}/composer.phar"/>
+            <arg value="update"/>
+            <arg value="--no-dev"/>
+            <arg value="-o"/>
+        </exec>
+    </target>
+</project>
+
