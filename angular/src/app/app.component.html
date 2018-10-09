@@ -1,0 +1,23 @@
+<main>
+  <div class="wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col"></div>
+          <div class="col">
+            <ul class="nav justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link active" routerLink="/users">Users</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/users/add">Add</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="message" class="container alert alert-danger">
+          <strong>Error</strong> {{message}}
+        </div>
+      <router-outlet class="bg-light"></router-outlet>
+  </div>
+</main>
