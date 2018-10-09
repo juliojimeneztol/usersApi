@@ -45,13 +45,13 @@ class phpservice {
     }
     file { '/var/log/php-fpm/www-error.log':
         ensure => "file",
-        owner  => "nginx",
+        owner  => "docker",
         group  => "nginx",
         mode   => 777
     }
     file { '/var/log/php-fpm/error.log':
         ensure => "file",
-        owner  => "nginx",
+        owner  => "docker",
         group  => "nginx",
         mode   => 777,
     }

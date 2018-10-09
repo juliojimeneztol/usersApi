@@ -11,7 +11,7 @@ class mysqlservice {
     user     => 'gigigo',
     password => 'password',
     host     => 'localhost',
-    grant    => ['SELECT', 'UPDATE'],
+    grant    => ['SELECT', 'UPDATE', 'INSERT', 'DELETE'],
     sql      => '/etc/puppet/db/gigigo.sql',
   }
 }

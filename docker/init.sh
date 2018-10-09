@@ -10,3 +10,11 @@ docker run -itd -v $PWD:/var/www/sites/ --net gigigo --ip 192.168.56.10 -p 9080:
 #docker run -itd -v $PWD:/var/www/sites/ -p 9080:80 -p 9022:22 -p 9006:3306 --privileged --name gigigo gigigo
 echo "Provision puppet"
 docker exec -ti gigigo ./setup.sh
+echo "Container stop"
+docker stop gigigo
+echo "Container stop"
+docker start gigigo
+echo "Redis start"
+docker exec -ti gigigo /usr/bin/systemctl start redis 
+echo "Redis enable"
+docker exec -ti gigigo /usr/bin/systemctl enable redis 
