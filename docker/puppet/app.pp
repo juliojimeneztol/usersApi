@@ -42,7 +42,7 @@ class api {
         index_files          => ['ini.php'],
         use_default_location => true,
         add_header => {
-            "'Access-Control-Allow-Origin'"      => "'https://www.front.com'",
+            "'Access-Control-Allow-Origin'"      => "'http://www.front.com'",
             "'Access-Control-Allow-Credentials'" => "'true'",
             "'Access-Control-Allow-Methods'"     => "'GET, POST, OPTIONS, PUT, DELETE'",
             "'Access-Control-Allow-Headers'"     => "'User-Agent, Content-Type'",
